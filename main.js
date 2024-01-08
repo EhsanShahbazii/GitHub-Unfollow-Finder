@@ -7,3 +7,12 @@ const readline = require("node:readline").createInterface({
   input: process.stdin,
   output: process.stdout,
 });
+
+const getInput = (message) => {
+  return new Promise((resolve, reject) => {
+    readline.question(`${message}: `, (input) => {
+      resolve(input);
+    });
+  });
+};
+

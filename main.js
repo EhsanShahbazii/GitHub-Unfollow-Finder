@@ -56,7 +56,7 @@ const fetchData = async () => {
   console.log(
     "Hi. I can find who unfollow you in github. please first create your followers list, \nthen send list path for me and i will find who unfollow you easily.\n"
   );
-  const username = await getInput("Please enter your username: ");
+  const username = await getInput("Please enter your username");
   return await getFollowers(username);
 };
 

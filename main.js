@@ -51,3 +51,21 @@ const getFollowers = async (username) => {
     throw error;
   }
 };
+
+const fetchData = async () => {
+  console.log(
+    "Hi. I can find who unfollow you in github. please first create your followers list, \nthen send list path for me and i will find who unfollow you easily.\n"
+  );
+  const username = await getInput("Please enter your username: ");
+  return await getFollowers(username);
+};
+
+fetchData().then((data) => {
+  const json_data = JSON.stringify(data);
+
+  fs.writeFile(`followers.json`, json_data, "utf-8", (err) => {
+    if (err) console.log("Error while to save file.", err);
+    else console.log("Your followers list has been saved.");
+  });
+  readline.close();
+});
